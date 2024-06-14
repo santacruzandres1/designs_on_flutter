@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:design_aplication/src/labs/wave.dart';
+import 'package:design_application/src/labs/wave.dart';
 import 'package:flutter/material.dart';
 
 

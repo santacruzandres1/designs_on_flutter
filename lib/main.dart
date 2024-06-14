@@ -1,6 +1,6 @@
 
-import 'package:design_aplication/config/theme/app_theme.dart';
-import 'package:design_aplication/src/pages/pages.dart';
+import 'package:design_application/config/theme/app_theme.dart';
+import 'package:design_application/src/pages/pages.dart';
 import 'package:flutter/material.dart';
 
 // import 'src/challenges/challenges.dart';

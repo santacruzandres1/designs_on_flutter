@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:design_aplication/src/labs/liquid_progress_indicator.dart';
+import 'package:design_application/src/labs/liquid_progress_indicator.dart';
 import 'package:flutter/material.dart';
 
 
