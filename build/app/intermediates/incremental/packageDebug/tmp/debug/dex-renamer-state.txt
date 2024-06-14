@@ -1,8 +1,8 @@
-#Fri Jun 14 10:30:34 ART 2024
-base.0=/home/equipo/Escritorio/Andres Santa Cruz/design_aplication/build/app/intermediates/dex/debug/mergeExtDexDebug/classes.dex
-base.1=/home/equipo/Escritorio/Andres Santa Cruz/design_aplication/build/app/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
-base.2=/home/equipo/Escritorio/Andres Santa Cruz/design_aplication/build/app/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
-base.3=/home/equipo/Escritorio/Andres Santa Cruz/design_aplication/build/app/intermediates/dex/debug/mergeProjectDexDebug/8/classes.dex
+#Fri Jun 14 14:10:21 ART 2024
+base.0=/home/equipo/Escritorio/Andres Santa Cruz/desigs_on_flutter/build/app/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.1=/home/equipo/Escritorio/Andres Santa Cruz/desigs_on_flutter/build/app/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.2=/home/equipo/Escritorio/Andres Santa Cruz/desigs_on_flutter/build/app/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
+base.3=/home/equipo/Escritorio/Andres Santa Cruz/desigs_on_flutter/build/app/intermediates/dex/debug/mergeProjectDexDebug/8/classes.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=1/classes.dex

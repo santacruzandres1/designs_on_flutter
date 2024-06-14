@@ -4,7 +4,7 @@
             "outputFile": "com.example.design_aplication.app-mergeDebugResources-9:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/home/equipo/Escritorio/Andres Santa Cruz/design_aplication/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/home/equipo/Escritorio/Andres Santa Cruz/desigs_on_flutter/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
