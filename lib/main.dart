@@ -1,6 +1,6 @@
 
 import 'package:design_application/config/theme/app_theme.dart';
-import 'package:design_application/src/pages/pages.dart';
+import 'package:design_application/src/pages/slideshow_page.dart';
 import 'package:flutter/material.dart';
 
 // import 'src/challenges/challenges.dart';
@@ -25,6 +25,6 @@ class MainApp extends StatelessWidget {
 
   Widget _bodyBuilder(BuildContext context){
 
-    return const GraficasCircularesPage();
+    return const SlideshowPage();
   }
 }
