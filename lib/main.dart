@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:design_application/config/theme/app_theme.dart';
 import 'package:design_application/src/pages/slideshow_page.dart';
-import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MainApp());
