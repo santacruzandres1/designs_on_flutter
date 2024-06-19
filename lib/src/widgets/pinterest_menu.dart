@@ -1,5 +1,6 @@
 import 'package:design_application/config/size/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class PinterestButton {
   final IconData icon;
@@ -12,7 +13,7 @@ class PinterestMenu extends StatelessWidget {
 
   final List<PinterestButton> items = [
     PinterestButton(
-      icon: Icons.price_change,
+      icon: Icons.pie_chart,
       onPressed: () {
         print('Icon pie_chart');
       },
@@ -36,17 +37,21 @@ class PinterestMenu extends StatelessWidget {
       },
     ),
   ];
+  
   PinterestMenu({super.key});
   @override
   Widget build(BuildContext context) {
   final double widthScreen = SizeConfig().blockSizeHorizontal;
-    return menuContainer(widthScreen);
+    return ChangeNotifierProvider(
+      create: (_) => _MenuModel(),
+      child: pinterestMenuBackground(widthScreen),
+      );
   }
 
-  Widget menuContainer(double widthScreen) {
+  Widget pinterestMenuBackground(double widthScreen) {
     return Container(
       alignment: Alignment.bottomCenter,
-      width: widthScreen * 45,
+      width: widthScreen * 50,
       height: 60,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
@@ -66,8 +71,10 @@ class PinterestMenu extends StatelessWidget {
 
 class _MenuItems extends StatelessWidget {
   final List<PinterestButton> menuItems;
+  // final bool itemIsSelected;
 
-  const _MenuItems(this.menuItems);
+
+  const _MenuItems(this.menuItems,);
 
   @override
   Widget build(BuildContext context) {
@@ -86,12 +93,31 @@ class _PinterestMenuButton extends StatelessWidget {
   final PinterestButton item;
 
   const _PinterestMenuButton(this.index, this.item);
+
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      icon: Icon(item.icon),
-      onPressed: () => item.onPressed(),
-
+    return Consumer<_MenuModel>(
+      builder: (context, menuModel, _) => IconButton(
+        icon: Icon(item.icon),
+        onPressed: () {
+          menuModel.itemSeleccionado = index; // Actualiza el ítem seleccionado
+          item.onPressed(); // Llama a la función onPressed del ítem
+        },
+        color: (menuModel.itemSeleccionado == index) ? Colors.blue : Colors.blueGrey,
+        iconSize: (menuModel.itemSeleccionado == index) ? 35 : 25,
+      ),
     );
+  }
+}
+
+
+class _MenuModel with ChangeNotifier {
+  int _itemSeleccionado = 0;
+
+  int get itemSeleccionado => _itemSeleccionado;
+
+  set itemSeleccionado ( int index){
+    _itemSeleccionado = index;
+    notifyListeners();
   }
 }
