@@ -6,6 +6,8 @@ class Slideshow extends StatelessWidget {
   final bool dotsAbove;
   final Color? primaryColor;
   final Color? secondaryColor;
+  final double bulletPrimario;
+  final double bulletSecundario;
 
   const Slideshow({
     super.key,
@@ -13,29 +15,35 @@ class Slideshow extends StatelessWidget {
     this.dotsAbove = false,
     this.primaryColor,
     this.secondaryColor,
+    this.bulletPrimario = 16.0,
+    this.bulletSecundario = 12.0,
   });
 
   @override
   Widget build(BuildContext context) {
-    final themeColors = Theme.of(context).colorScheme;
+    final colors = Theme.of(context).colorScheme;
 
-    return ChangeNotifierProvider.value(
-      value: _SlideshowModel(
-        primaryColor: primaryColor ?? themeColors.primary,
-        secondaryColor: secondaryColor ?? themeColors.secondary,
-      ),
-      child: SafeArea(
-        child: Column(
-          children: [
-            if (dotsAbove) _Dots(slides.length),
-            Expanded(
-              child: _Slides(slides: slides),
-            ),
-            if (!dotsAbove) _Dots(slides.length),
-          ],
+    return ChangeNotifierProvider(
+  key: UniqueKey(),
+  create: (_) => _SlideshowModel(
+    primaryColor: primaryColor ?? colors.primaryFixedDim,
+    secondaryColor: secondaryColor ?? colors.secondaryFixedDim,
+    bulletPrimario: bulletPrimario,
+    bulletSecundario: bulletSecundario,
+  ),
+  child: SafeArea(
+    child: Column(
+      children: [
+        if (dotsAbove) _Dots(slides.length),
+        Expanded(
+          child: _Slides(slides: slides),
         ),
-      ),
-    );
+        if (!dotsAbove) _Dots(slides.length),
+      ],
+    ),
+  ),
+);
+
   }
 }
 
@@ -100,7 +108,6 @@ class _Slide extends StatelessWidget {
     );
   }
 }
-
 class _Dots extends StatelessWidget {
   final int totalSlides;
 
@@ -126,27 +133,29 @@ class _Dot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ssModel = Provider.of<_SlideshowModel>(context);
+    return Consumer<_SlideshowModel>(
+      builder: (context, ssModel, child) {
+        final Color colorDots = (ssModel.currentPage >= index - 0.5 &&
+                ssModel.currentPage < index + 0.5)
+            ? ssModel.primaryColor
+            : ssModel.secondaryColor;
 
-    final Color colorDots = (ssModel.currentPage >= index - 0.5 &&
-            ssModel.currentPage < index + 0.5)
-        ? ssModel.primaryColor
-        : ssModel.secondaryColor;
+        final double sizeDots = (ssModel.currentPage >= index - 0.5 &&
+                ssModel.currentPage < index + 0.5)
+            ? ssModel.bulletPrimario
+            : ssModel.bulletSecundario;
 
-    final double sizeDots = (ssModel.currentPage >= index - 0.5 &&
-            ssModel.currentPage < index + 0.5)
-        ? 16
-        : 12;
-
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 250),
-      width: sizeDots,
-      height: sizeDots,
-      margin: const EdgeInsets.symmetric(horizontal: 5),
-      decoration: BoxDecoration(
-        color: colorDots,
-        shape: BoxShape.circle,
-      ),
+        return AnimatedContainer(
+          duration: const Duration(milliseconds: 250),
+          width: sizeDots,
+          height: sizeDots,
+          margin: const EdgeInsets.symmetric(horizontal: 5),
+          decoration: BoxDecoration(
+            color: colorDots,
+            shape: BoxShape.circle,
+          ),
+        );
+      },
     );
   }
 }
@@ -155,12 +164,18 @@ class _SlideshowModel with ChangeNotifier {
   double _currentPage = 0;
   Color _primaryColor;
   Color _secondaryColor;
+  double _bulletPrimario;
+  double _bulletSecundario;
 
   _SlideshowModel({
     required Color primaryColor,
     required Color secondaryColor,
+    required double bulletPrimario,
+    required double bulletSecundario,
   })  : _primaryColor = primaryColor,
-        _secondaryColor = secondaryColor;
+        _secondaryColor = secondaryColor,
+        _bulletPrimario = bulletPrimario,
+        _bulletSecundario = bulletSecundario;
 
   double get currentPage => _currentPage;
 
@@ -172,10 +187,26 @@ class _SlideshowModel with ChangeNotifier {
   Color get primaryColor => _primaryColor;
   Color get secondaryColor => _secondaryColor;
 
-  void updateColors(
-      {required Color primaryColor, required Color secondaryColor}) {
+  void updateColors({
+    required Color primaryColor,
+    required Color secondaryColor,
+  }) {
     _primaryColor = primaryColor;
     _secondaryColor = secondaryColor;
+    notifyListeners();
+  }
+
+  double get bulletPrimario => _bulletPrimario;
+
+  set bulletPrimario(double size) {
+    _bulletPrimario = size;
+    notifyListeners();
+  }
+
+  double get bulletSecundario => _bulletSecundario;
+
+  set bulletSecundario(double size) {
+    _bulletSecundario = size;
     notifyListeners();
   }
 }
