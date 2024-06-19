@@ -38,9 +38,6 @@ class PinterestGrid extends StatelessWidget {
     );
   }
 }
-
-class MasonryGridView {
-}
 class Tile extends StatelessWidget {
   final int index;
   final double extent;

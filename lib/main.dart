@@ -12,11 +12,16 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
     return MaterialApp(
       theme: AppTheme().getTheme(),
       debugShowCheckedModeBanner: false,
-      home: const PinterestPage(),
+      home: Builder(
+        builder: (context){
+          SizeConfig().init(context);
+          return const PinterestPage();
+        }),
     );
   }
+
+
 }
