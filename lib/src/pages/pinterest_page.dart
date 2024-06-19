@@ -1,6 +1,6 @@
-import 'package:design_application/src/widgets/pinterest_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:design_application/src/widgets/pinterest_menu.dart';
 
 class PinterestPage extends StatelessWidget {
   const PinterestPage({super.key});
@@ -8,12 +8,26 @@ class PinterestPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-          margin: const EdgeInsets.only(right: 8, left: 8, top: 8),
-          // child: PinterestGrid(),
-          child: PinterestMenu(),
-          ),
+      body: Builder(
+        builder: (context) {
+          return Stack(
+            children: [
+              PinterestGrid(),
+              _buildMenuContainer(),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildMenuContainer() {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Container(
+        alignment: Alignment.bottomCenter,
+        margin: const EdgeInsets.only(right: 8, left: 8, top: 8),
+        child: PinterestMenu(),
       ),
     );
   }
@@ -21,23 +35,24 @@ class PinterestPage extends StatelessWidget {
 
 class PinterestGrid extends StatelessWidget {
   final List<int> items = List.generate(200, (i) => i);
+
   PinterestGrid({super.key});
 
   @override
   Widget build(BuildContext context) {
-    
     return MasonryGridView.count(
       crossAxisCount: 2,
       itemCount: items.length,
       itemBuilder: (context, index) {
         return Tile(
           index: index,
-          extent: (index % 3 + 3) * 80,
+          extent: (index % 3 + 3) * 80.0,
         );
       },
     );
   }
 }
+
 class Tile extends StatelessWidget {
   final int index;
   final double extent;
@@ -59,7 +74,7 @@ class Tile extends StatelessWidget {
       height: extent,
       width: extent,
       child: Center(
-        child: Text('Tile ${index+1}'),
+        child: Text('Tile ${index + 1}'),
       ),
     );
   }
