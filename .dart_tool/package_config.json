@@ -74,6 +74,12 @@
       "languageVersion": "3.3"
     },
     {
+      "name": "font_awesome_flutter",
+      "rootUri": "file:///home/equipo/.pub-cache/hosted/pub.dev/font_awesome_flutter-10.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "http",
       "rootUri": "file:///home/equipo/.pub-cache/hosted/pub.dev/http-1.2.1",
       "packageUri": "lib/",
@@ -254,7 +260,7 @@
       "languageVersion": "3.4"
     }
   ],
-  "generated": "2024-06-19T17:57:44.747064Z",
+  "generated": "2024-06-24T14:57:41.890597Z",
   "generator": "pub",
   "generatorVersion": "3.4.0",
   "flutterRoot": "file:///home/equipo/snap/flutter/common/flutter",
