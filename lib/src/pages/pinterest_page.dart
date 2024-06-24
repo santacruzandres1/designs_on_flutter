@@ -119,10 +119,11 @@ class Tile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Container(
       margin: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: const Color.fromRGBO(76, 175, 80, 1),
+        color: colors.primaryFixedDim,
         borderRadius: BorderRadius.circular(20),
       ),
       height: extent,
