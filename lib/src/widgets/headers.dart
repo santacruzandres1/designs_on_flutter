@@ -1,4 +1,6 @@
+import 'package:design_application/config/size/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HeaderCuadrado extends StatelessWidget {
   const HeaderCuadrado({super.key});
@@ -15,15 +17,15 @@ class HeaderCuadrado extends StatelessWidget {
 class HeaderBordesRedondeados extends StatelessWidget {
   const HeaderBordesRedondeados({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 300,
       decoration: const BoxDecoration(
-        color: Color(0xff615AAB),
-        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(70), bottomRight: Radius.circular(70))
-      ),
+          color: Color(0xff615AAB),
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(70),
+              bottomRight: Radius.circular(70))),
     );
   }
 }
@@ -48,34 +50,27 @@ class _HeaderDiagonalPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-    //Properties
-    ..color =  const Color(0xff615AAB)
-    // ..style = PaintingStyle.stroke 
-    ..style = PaintingStyle.fill
-    ..strokeWidth = 29;
-
+      //Properties
+      ..color = const Color(0xff615AAB)
+      // ..style = PaintingStyle.stroke
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 29;
 
     // Draw with path and pencil
     final path = Path()
-    ..moveTo(0, size.height * 0.30)
-    ..lineTo(size.width, size.height * 0.20)
-    ..lineTo(size.width, 0)
-    ..lineTo(0, 0)
-    ..close()
-    ;   
+      ..moveTo(0, size.height * 0.30)
+      ..lineTo(size.width, size.height * 0.20)
+      ..lineTo(size.width, 0)
+      ..lineTo(0, 0)
+      ..close();
 
     canvas.drawPath(path, paint);
-
-  
   }
-  
-  
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return true;
   }
-
 }
 
 class HeaderTriangular extends StatelessWidget {
@@ -98,34 +93,27 @@ class _HeaderTriangularPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-    //Properties
-    ..color =  const Color.fromARGB(255, 90, 120, 171)
-    // ..style = PaintingStyle.stroke 
-    ..style = PaintingStyle.fill
-    ..strokeWidth = 29;
-
+      //Properties
+      ..color = const Color.fromARGB(255, 90, 120, 171)
+      // ..style = PaintingStyle.stroke
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 29;
 
     // Draw with path and pencil
     final path = Path()
-    ..moveTo(0, 0)
-    ..lineTo(size.width, size.height )
-    ..lineTo(0, size.height)
-    ..lineTo(0, size.height)
-    ..close()
-    ;   
+      ..moveTo(0, 0)
+      ..lineTo(size.width, size.height)
+      ..lineTo(0, size.height)
+      ..lineTo(0, size.height)
+      ..close();
 
     canvas.drawPath(path, paint);
-
-  
   }
-  
-  
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return true;
   }
-
 }
 
 class HeaderPico extends StatelessWidget {
@@ -137,36 +125,29 @@ class HeaderPico extends StatelessWidget {
       height: double.infinity,
       width: double.infinity,
       child: CustomPaint(
-        painter:_HeaderPicoPinter() ,
+        painter: _HeaderPicoPinter(),
       ),
     );
   }
 }
 
-class _HeaderPicoPinter extends CustomPainter{
+class _HeaderPicoPinter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-        ..color =  const Color.fromARGB(255, 90, 129, 171)
-        ..style = PaintingStyle.fill
-        ..strokeWidth = 40;
-
+      ..color = const Color.fromARGB(255, 90, 129, 171)
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 40;
 
     final path = Path()
       ..moveTo(0, 0)
-      ..lineTo(0, size.height *0.2)
-      ..lineTo(size.width/2, size.height *0.3)
-      ..lineTo(size.width, size.height *0.2)
+      ..lineTo(0, size.height * 0.2)
+      ..lineTo(size.width / 2, size.height * 0.3)
+      ..lineTo(size.width, size.height * 0.2)
       ..lineTo(size.width, 0)
-      ..close()
-      
-
-
-      
-      ;
+      ..close();
 
     canvas.drawPath(path, paint);
-  
   }
 
   @override
@@ -190,36 +171,31 @@ class HeaderCurvo extends StatelessWidget {
   }
 }
 
-class _HeaderCurvoPainter extends CustomPainter{
+class _HeaderCurvoPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    
 //Paint
     final paint = Paint()
-      ..color =  const Color(0xFF5A6EAB)
+      ..color = const Color(0xFF5A6EAB)
       ..style = PaintingStyle.fill
-      ..strokeWidth = 20
-    ;
+      ..strokeWidth = 20;
 
 //Path
     final path = Path()
-  ..moveTo(0, 0)
-  ..lineTo( (size.width * 0), (size.height * 0.2) )
-  ..quadraticBezierTo((size.width * 0.5), (size.height * 0.4), (size.width), (size.height * 0.2))
-  ..lineTo( (size.width), (size.height * 0) )
-  ;
+      ..moveTo(0, 0)
+      ..lineTo((size.width * 0), (size.height * 0.2))
+      ..quadraticBezierTo((size.width * 0.5), (size.height * 0.4), (size.width),
+          (size.height * 0.2))
+      ..lineTo((size.width), (size.height * 0));
 
 //Canvas
-  canvas.drawPath(path, paint);
-
-
+    canvas.drawPath(path, paint);
   }
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-return true;
+    return true;
   }
-
 }
 
 class HeaderWave extends StatelessWidget {
@@ -237,39 +213,34 @@ class HeaderWave extends StatelessWidget {
   }
 }
 
-class _HeaderWavePainter extends CustomPainter{
+class _HeaderWavePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    
 //Paint
     final paint = Paint()
-      ..color =  const Color.fromARGB(255, 90, 110, 171)
+      ..color = const Color.fromARGB(255, 90, 110, 171)
       ..style = PaintingStyle.fill
-      ..strokeWidth = 20
-    ;
+      ..strokeWidth = 20;
 
 //Path
     final path = Path()
-  ..moveTo(0, 0)
-  ..lineTo( (size.width * 0), (size.height * 0.3) )
-  ..quadraticBezierTo((size.width * 0.25), (size.height * 0.4), (size.width * 0.5), (size.height * 0.3))
-  ..quadraticBezierTo((size.width * 0.75), (size.height * 0.2), (size.width), (size.height * 0.3))
-  ..lineTo( (size.width), (size.height * 0) )
-  ;
+      ..moveTo(0, 0)
+      ..lineTo((size.width * 0), (size.height * 0.3))
+      ..quadraticBezierTo((size.width * 0.25), (size.height * 0.4),
+          (size.width * 0.5), (size.height * 0.3))
+      ..quadraticBezierTo((size.width * 0.75), (size.height * 0.2),
+          (size.width), (size.height * 0.3))
+      ..lineTo((size.width), (size.height * 0));
 
 //Canvas
-  canvas.drawPath(path, paint);
-
-
+    canvas.drawPath(path, paint);
   }
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-return true;
+    return true;
   }
-
 }
-
 
 class HeaderWaveBottom extends StatelessWidget {
   const HeaderWaveBottom({super.key});
@@ -286,39 +257,34 @@ class HeaderWaveBottom extends StatelessWidget {
   }
 }
 
-class _HeaderWaveBottomPainter extends CustomPainter{
+class _HeaderWaveBottomPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    
 //Paint
     final paint = Paint()
-      ..color =  const Color(0xFF5A6EAB)
+      ..color = const Color(0xFF5A6EAB)
       ..style = PaintingStyle.fill
-      ..strokeWidth = 20
-    ;
+      ..strokeWidth = 20;
 
 //Path
     final path = Path()
-  ..moveTo(0, size.height)
-  ..lineTo(0, size.height*0.8)
-  ..quadraticBezierTo((size.width*0.25), (size.height*0.7), (size.width*0.5), (size.height*0.8))
-  ..quadraticBezierTo((size.width*0.75), (size.height*0.9), size.width, (size.height*0.8))
-  ..lineTo(size.width, size.height)
-  ;
+      ..moveTo(0, size.height)
+      ..lineTo(0, size.height * 0.8)
+      ..quadraticBezierTo((size.width * 0.25), (size.height * 0.7),
+          (size.width * 0.5), (size.height * 0.8))
+      ..quadraticBezierTo((size.width * 0.75), (size.height * 0.9), size.width,
+          (size.height * 0.8))
+      ..lineTo(size.width, size.height);
 
 //Canvas
-  canvas.drawPath(path, paint);
-
-
+    canvas.drawPath(path, paint);
   }
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-return true;
+    return true;
   }
-
 }
-
 
 class HeaderWaveGradient extends StatelessWidget {
   const HeaderWaveGradient({super.key});
@@ -335,53 +301,49 @@ class HeaderWaveGradient extends StatelessWidget {
   }
 }
 
-class _HeaderWaveGradientPainter extends CustomPainter{
+class _HeaderWaveGradientPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-  //Rect Shader
-  final Rect rect =  Rect.fromCircle(
-    center: const Offset(165, 320), 
-    radius: 180,
+    //Rect Shader
+    final Rect rect = Rect.fromCircle(
+      center: const Offset(165, 320),
+      radius: 180,
     );
 
     //Gradient
     const Gradient gradient = LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: <Color>[
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: <Color>[
           Color.fromARGB(255, 110, 13, 229),
           Color.fromRGBO(180, 12, 241, 1),
           Color.fromARGB(255, 113, 16, 248)
-      ]);
-    
-  
+        ]);
+
     //Paint
     final paint = Paint()
       ..color = const Color(0xff615AAB)
       // ..color =  Color(0xFF5AAB75)
       ..style = PaintingStyle.fill
       ..strokeWidth = 20
-      ..shader = gradient.createShader(rect)
-    ;
+      ..shader = gradient.createShader(rect);
 
 //Path
     final path = Path()
-  ..moveTo(0, 0)
-  ..lineTo( (size.width * 0), (size.height * 0.3) )
-  ..quadraticBezierTo((size.width * 0.25), (size.height * 0.4), (size.width * 0.5), (size.height * 0.3))
-  ..quadraticBezierTo((size.width * 0.75), (size.height * 0.2), (size.width), (size.height * 0.3))
-  ..lineTo( (size.width), (size.height * 0) )
-  ;
+      ..moveTo(0, 0)
+      ..lineTo((size.width * 0), (size.height * 0.3))
+      ..quadraticBezierTo((size.width * 0.25), (size.height * 0.4),
+          (size.width * 0.5), (size.height * 0.3))
+      ..quadraticBezierTo((size.width * 0.75), (size.height * 0.2),
+          (size.width), (size.height * 0.3))
+      ..lineTo((size.width), (size.height * 0));
 
 //Canvas
-  canvas.drawPath(path, paint);
-
-
+    canvas.drawPath(path, paint);
   }
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-return true;
+    return true;
   }
-
 }
