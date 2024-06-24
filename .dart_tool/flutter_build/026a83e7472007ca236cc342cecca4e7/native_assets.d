@@ -1,0 +1,1 @@
+ /home/equipo/Escritorio/Andres\ Santa\ Cruz/desigs_on_flutter/.dart_tool/flutter_build/026a83e7472007ca236cc342cecca4e7/native_assets.yaml: 
