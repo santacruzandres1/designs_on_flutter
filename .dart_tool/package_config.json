@@ -2,6 +2,12 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "animate_do",
+      "rootUri": "file:///home/equipo/.pub-cache/hosted/pub.dev/animate_do-3.3.4",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
       "name": "args",
       "rootUri": "file:///home/equipo/.pub-cache/hosted/pub.dev/args-2.5.0",
       "packageUri": "lib/",
@@ -12,6 +18,12 @@
       "rootUri": "file:///home/equipo/.pub-cache/hosted/pub.dev/async-2.11.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
+    },
+    {
+      "name": "avatar_glow",
+      "rootUri": "file:///home/equipo/.pub-cache/hosted/pub.dev/avatar_glow-3.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "boolean_selector",
@@ -260,7 +272,7 @@
       "languageVersion": "3.4"
     }
   ],
-  "generated": "2024-06-24T14:57:41.890597Z",
+  "generated": "2024-06-25T20:17:10.077699Z",
   "generator": "pub",
   "generatorVersion": "3.4.0",
   "flutterRoot": "file:///home/equipo/snap/flutter/common/flutter",

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppTheme{
   ThemeData getTheme(){
-    const  seedColor = Colors.blue;
+    const  seedColor = Colors.green;
 
 
     return ThemeData(
