@@ -6,7 +6,7 @@ class ButtonEmergency extends StatelessWidget {
   final IconData icon;
   final String title;
   final Color color1, color2;
-  final Function onPressed;
+  final  VoidCallback onPressed;
   const ButtonEmergency({
     super.key, 
     this.icon = Icons.health_and_safety, 
@@ -20,40 +20,43 @@ class ButtonEmergency extends StatelessWidget {
   Widget build(BuildContext context) {
     final textStyle = Theme.of(context).textTheme;
     final blockSizeHorizontal = SizeConfig().blockSizeHorizontal;
-    return Stack(
-      alignment: Alignment.center,
-      children: <Widget>[
-        _EmergencyButtonBackground(
-          icon: icon,
-          color1: color1,
-          color2: color2,
-          ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(width: 40),
-            FaIcon(
-              icon,
-              color: Colors.white,
-              size: 40,
+    return GestureDetector(
+      onTap: onPressed,
+      child: Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          _EmergencyButtonBackground(
+            icon: icon,
+            color1: color1,
+            color2: color2,
             ),
-            const SizedBox(width: 20),
-            Expanded(
-              child: Text(
-                title,
-                style: textStyle.titleLarge?.copyWith(color: Colors.white),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(width: 40),
+              FaIcon(
+                icon,
+                color: Colors.white,
+                size: 40,
               ),
-            ),
-            const FaIcon(
-              FontAwesomeIcons.chevronRight,
-              color: Colors.white,
-              size: 30,
-            ),
-            SizedBox(width: blockSizeHorizontal / 0.40),
-          ],
-        ),
-      ],
+              const SizedBox(width: 20),
+              Expanded(
+                child: Text(
+                  title,
+                  style: textStyle.titleLarge?.copyWith(color: Colors.white),
+                ),
+              ),
+              const FaIcon(
+                FontAwesomeIcons.chevronRight,
+                color: Colors.white,
+                size: 30,
+              ),
+              SizedBox(width: blockSizeHorizontal / 0.40),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
@@ -79,41 +82,39 @@ class _EmergencyButtonBackground extends StatelessWidget {
       width = 633;
     }
 
-    return Center(
-      child: Container(
-        width: width,
-        height: blockSizeVertical * 10,
-        decoration: BoxDecoration(
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-              color: Colors.black.withOpacity(0.2),
-              offset: const Offset(4, 6),
-              blurRadius: 10,
+    return Container(
+      width: width,
+      height: blockSizeVertical * 10,
+      decoration: BoxDecoration(
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            offset: const Offset(4, 6),
+            blurRadius: 10,
+          ),
+        ],
+        borderRadius: BorderRadius.circular(15),
+        gradient: LinearGradient(
+          colors: <Color>[
+            color1,
+            color2,
+          ],
+        ),
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Stack(
+          children: <Widget>[
+            Positioned(
+              right: -20,
+              top: -20,
+              child: FaIcon(
+                icon,
+                size: 150,
+                color: Colors.white.withOpacity(0.2),
+              ),
             ),
           ],
-          borderRadius: BorderRadius.circular(15),
-          gradient: LinearGradient(
-            colors: <Color>[
-              color1,
-              color2,
-            ],
-          ),
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Stack(
-            children: <Widget>[
-              Positioned(
-                right: -20,
-                top: -20,
-                child: FaIcon(
-                  icon,
-                  size: 150,
-                  color: Colors.white.withOpacity(0.2),
-                ),
-              ),
-            ],
-          ),
         ),
       ),
     );

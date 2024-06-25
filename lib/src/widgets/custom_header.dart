@@ -18,24 +18,28 @@ class IconHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double widthScreen = SizeConfig().blockSizeHorizontal;
-    final double heightScreen = SizeConfig().blockSizeVertical;
+    final double blockSizeHorizontal = SizeConfig().blockSizeHorizontal;
+    final double blockSizeVertical = SizeConfig().blockSizeVertical;
     final Color colorBlanco = Colors.white.withOpacity(0.7);
+
+
     return Stack(
-        children: <Widget>[
-            _IconHeaderBackground(
-              color1: color1,
-              color2: color2,
-              widthScreen: widthScreen, 
-              heightScreen: heightScreen),
-            Positioned(
-              top: -50,
-              left: -70,
-              child: FaIcon(
-                icon, 
-                size: 230, 
-                color: Colors.white.withOpacity(0.2),    
-                )),
+      children: <Widget>[
+        _IconHeaderBackground(
+          color1: color1,
+          color2: color2,
+          blockSizeHorizontal: blockSizeHorizontal,
+          blockSizeVertical: blockSizeVertical,
+        ),
+        Positioned(
+          top: -50,
+          left: -70,
+          child: FaIcon(
+            icon,
+            size: 230,
+            color: Colors.white.withOpacity(0.2),
+          ),
+        ),
             Column(
               children: [
                 const SizedBox(height: 80, width: double.infinity,),
@@ -62,20 +66,20 @@ class _IconHeaderBackground extends StatelessWidget {
   final Color color1, color2;
 
   const _IconHeaderBackground({
-    required this.widthScreen,
-    required this.heightScreen, 
+    required this.blockSizeHorizontal,
+    required this.blockSizeVertical, 
     required this.color1, 
     required this.color2,
   });
 
-  final double widthScreen;
-  final double heightScreen;
+  final double blockSizeHorizontal;
+  final double blockSizeVertical;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: widthScreen * 100,
-      height: heightScreen * 30,
+      width: blockSizeHorizontal * 100,
+      height: blockSizeVertical * 30,
       decoration: BoxDecoration(
           // color: Colors.red,
           borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(80)),
