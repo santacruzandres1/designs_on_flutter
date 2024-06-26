@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:design_application/src/pages/pages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -24,7 +25,10 @@ class Page1Page extends StatelessWidget {
       ),
       actions: <Widget>[
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) => const TwitterPage(),));
+
+          },
           icon: const FaIcon(
             FontAwesomeIcons.twitter,
             color: Colors.white,
