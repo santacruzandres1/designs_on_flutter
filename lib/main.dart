@@ -1,5 +1,5 @@
 import 'package:design_application/config/size/size_config.dart';
-import 'package:design_application/src/pages/glow_page.dart';
+import 'package:design_application/src/pages/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:design_application/config/theme/app_theme.dart';
 
@@ -18,7 +18,7 @@ class MainApp extends StatelessWidget {
       home: Builder(
         builder: (context){
           SizeConfig().init(context);
-          return  const GlowPage();
+          return  const TwitterPage();
         }),
     );
   }

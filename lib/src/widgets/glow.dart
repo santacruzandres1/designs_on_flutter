@@ -9,12 +9,12 @@ class GlowAnimation extends StatefulWidget {
     this.glowColor = Colors.white,
     this.glowShape = BoxShape.circle,
     this.glowBorderRadius,
-    this.duration = const Duration(milliseconds: 600),
+    this.duration = const Duration(milliseconds: 800),
     this.startDelay,
     this.animate = true,
     this.repeat = false,
     this.curve = Curves.fastOutSlowIn,
-    this.glowRadiusFactor = 0.7,
+    this.glowRadiusFactor = 1,
     this.onEnd,
   })  : assert(
           glowShape != BoxShape.circle || glowBorderRadius == null,
@@ -205,7 +205,6 @@ class _GlowPainter extends ChangeNotifier implements CustomPainter {
     final glowSize = math.min(size.width, size.height);
     final glowRadius = glowSize / 2;
 
-    // Remove the contraction by using the progress value directly.
     final currentProgress = progress.value;
 
     _glowPath.reset();

@@ -1,4 +1,4 @@
-#Tue Jun 25 16:38:33 ART 2024
+#Wed Jun 26 16:11:23 ART 2024
 base.0=/home/equipo/Escritorio/Andres Santa Cruz/desigs_on_flutter/build/app/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 base.1=/home/equipo/Escritorio/Andres Santa Cruz/desigs_on_flutter/build/app/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
 base.2=/home/equipo/Escritorio/Andres Santa Cruz/desigs_on_flutter/build/app/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
