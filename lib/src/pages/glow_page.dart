@@ -47,7 +47,7 @@ class _FloatingActionButtonBuilder extends StatelessWidget {
     return FloatingActionButton(
       onPressed: triggerGlow,
       backgroundColor: colors.primary,
-      child: Icon(Icons.play_arrow, color: Colors.white),
+      child: const Icon(Icons.play_arrow, color: Colors.white),
     );
   }
 }
@@ -70,26 +70,30 @@ class _BodyBuilder extends StatelessWidget {
             height: 200,
           ),
           const SizedBox(height: 32.0),
-          FadeIn(
-            child: GlowAnimation(
-              startDelay: const Duration(milliseconds: 200),
-              glowColor: Colors.green,
-              glowShape: BoxShape.circle,
-              animate: _animate,
-              curve: Curves.linear,
-              onEnd: onEnd,
-              child: const Material(
-                elevation: 0,
-                shape: CircleBorder(),
-                color: Colors.transparent,
-                child: Material(
+          Stack(
+            children: [
+              FadeIn(
+              child: GlowAnimation(
+                // startDelay: const Duration(milliseconds: 2000),
+                glowColor: Colors.green,
+                glowShape: BoxShape.circle,
+                animate: _animate,
+                curve: Curves.linear,
+                onEnd: onEnd,
+                child: const Material(
                   elevation: 0,
                   shape: CircleBorder(),
                   color: Colors.transparent,
-                  child: ExpandableCircle(radius: 50.0),
+                  child: Material(
+                    elevation: 0,
+                    shape: CircleBorder(),
+                    color: Colors.transparent,
+                    child: ExpandableCircle(radius: 100.0),
+                  ),
                 ),
               ),
             ),
+            ]
           ),
           
         ],
