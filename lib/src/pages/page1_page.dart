@@ -89,7 +89,7 @@ return Center(
     return FloatingActionButton(
       child: const FaIcon(FontAwesomeIcons.play),
       onPressed: () {
-        Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) => const Page1Page(),));
+        Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) => const NavigationPage(),));
       },
     );
   }

@@ -18,7 +18,7 @@ class MainApp extends StatelessWidget {
       home: Builder(
         builder: (context){
           SizeConfig().init(context);
-          return  const TwitterPage();
+          return  const Page1Page();
         }),
     );
   }
